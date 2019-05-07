@@ -27,6 +27,16 @@
 <hr>
 
 <h3>Delete</h3>
+
+<form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">hash</label>
+    <input type="text" class="form-control" name="updateHash" placeholder="hash" required [(ngModel)]="deletedHash">
+  </div>
+  <button class="btn btn-primary" (click)="onDeleteClick(deletedHash)">Delete</button>
+</form>
+
+
 <hr>
 <h3>Insert</h3>
 
@@ -47,7 +57,7 @@
     <label for="formGroupExampleInput2">time</label>
     <input type="text" class="form-control" name="updateTime" placeholder="time" [(ngModel)]="insertedTime">
   </div>
-  <button class="btn btn-primary" (click)="onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime)">Update</button>
+  <button class="btn btn-primary" (click)="onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime)">Insert</button>
 </form>
 
 </div>

@@ -29,16 +29,26 @@ export class ChangeDataComponent implements OnInit {
     }
     this.http.post(this.url, this.body).subscribe((result) => {
       console.log(result)
-  });
-    
-    console.log(this.url);
-    console.log(this.body);
+  });  
     
 
   }
 
-  onInsertClick(updateHash, updateHeight, updateSize, updateTime){
-    
+  onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime){
+    this.url = "http://localhost:3000/api/createblock" ;
+    this.body = {
+      "hash" : insertedHash,
+      "height": Number(insertedHeight),
+      "size": Number(insertedSize),
+      "time": Number(insertedTime)
+    }
+    this.http.post(this.url, this.body).subscribe((result) => {
+      console.log(result)
+  });  
+  }
+
+  onDeleteClick(deletedHash){
+    console.log(deletedHash)
   }
 
 }
