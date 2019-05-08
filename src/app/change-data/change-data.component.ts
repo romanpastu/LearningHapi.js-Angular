@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { PassdataService} from '../passdata.service'
 
 @Component({
   selector: 'app-change-data',
@@ -8,12 +8,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./change-data.component.css']
 })
 export class ChangeDataComponent implements OnInit {
-
-
+  updateHash = this.dd.hash;
+  updateSize = this.dd.size;
+  updateTime = this.dd.time;
+  
 
   url: string = "";
   body;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient , private dd : PassdataService) {
 
   }
 
@@ -22,8 +24,9 @@ export class ChangeDataComponent implements OnInit {
 
   onUpdateClick(updateHash, updateHeight, updateSize, updateTime) {
     this.url = "http://localhost:3000/api/blockinfo/" + updateHash.toString();
+
     this.body = {
-      "height": Number(updateHeight),
+      "hash": updateHash,
       "size": Number(updateSize),
       "time": Number(updateTime)
     }

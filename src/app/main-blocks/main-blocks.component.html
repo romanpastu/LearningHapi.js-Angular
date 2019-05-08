@@ -7,6 +7,7 @@
             <th scope="col">hash</th>
             <th scope="col">size</th>
             <th scope="col">time</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody *ngFor="let data  of json">
@@ -14,6 +15,7 @@
             <td>{{data.hash}}</td>
             <td>{{data.size}}</td> 
             <td>{{data.time}}</td>
+            <td><button class="btn btn-primary" (click)="onUpdateClick(data.hash , data.size, data.time)">Update</button></td>
         </tr>
     </tbody>
 </table>

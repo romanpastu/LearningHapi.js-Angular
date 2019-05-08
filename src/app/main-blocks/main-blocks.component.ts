@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonLoadService } from '../json-load.service'
+import { Router } from '@angular/router';
+import { PassdataService} from '../passdata.service'
 @Component({
   selector: 'app-main-blocks',
   templateUrl: './main-blocks.component.html',
@@ -11,7 +13,7 @@ export class MainBlocksComponent {
 
 
 
-  constructor(private jsl : JsonLoadService){
+  constructor(private jsl : JsonLoadService, private router : Router, private dd : PassdataService){
 
     this.json = this.jsl.getUrl().subscribe(res => {
       console.log(res)
@@ -19,6 +21,20 @@ export class MainBlocksComponent {
 
       
     })
+    
+  }
+
+  onUpdateClick(hash, size , time){
+    console.log(hash)
+    console.log(size)
+    console.log(time)
+    
+    this.dd.hash = hash;
+    this.dd.size = Number(size)
+    this.dd.time = Number(time)
+
+    this.router.navigate(['/changedata']);
+
     
   }
 
