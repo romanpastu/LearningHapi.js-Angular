@@ -1,3 +1,8 @@
-<p>
-  stats works!
-</p>
+<app-navbar></app-navbar>
+
+
+<ul class="list-group" *ngFor="let data  of json">
+  <li class="list-group-item">Difficulty : {{data.difficulty}}</li>
+  <li class="list-group-item">Mined currency amount : {{data.mined_currency_amount}}</li>
+  <li class="list-group-item">Number of tx: {{data.number_of_transactions}}</li>
+</ul>

@@ -17,6 +17,11 @@ export class JsonLoadService {
     return this.http.get('http://localhost:3000/api/blockinfo')
       .pipe(map(res => res));
   }
+
+  getUrlStats() {
+    return this.http.get('http://localhost:3000/api/stats')
+      .pipe(map(res => res));
+  }
 }
 
 

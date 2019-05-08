@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./change-data.component.css']
 })
 export class ChangeDataComponent implements OnInit {
-  
+
 
 
   url: string = "";
   body;
   constructor(private http: HttpClient) {
-    
-   }
+
+  }
 
   ngOnInit() {
   }
@@ -29,26 +29,31 @@ export class ChangeDataComponent implements OnInit {
     }
     this.http.post(this.url, this.body).subscribe((result) => {
       console.log(result)
-  });  
-    
+    });
+
 
   }
 
-  onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime){
-    this.url = "http://localhost:3000/api/createblock" ;
+  onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime) {
+    this.url = "http://localhost:3000/api/createblock";
     this.body = {
-      "hash" : insertedHash,
+      "hash": insertedHash,
       "height": Number(insertedHeight),
       "size": Number(insertedSize),
       "time": Number(insertedTime)
     }
     this.http.post(this.url, this.body).subscribe((result) => {
       console.log(result)
-  });  
+    });
   }
 
-  onDeleteClick(deletedHash){
-    console.log(deletedHash)
+  onDeleteClick(deletedHash) {
+    this.url = "http://localhost:3000/api/blockinfo/";
+    this.url += deletedHash
+    console.log(this.url)
+    this.http.delete(this.url).subscribe((result) => {
+      console.log(result)
+    });
   }
 
 }

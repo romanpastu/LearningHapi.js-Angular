@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -19,5 +20,16 @@ export class NavbarComponent implements OnInit {
 
   onMainClick(){
     this.router.navigate(['/explorer'])
+  }
+
+  onUpdateBlocks(){
+    this.http.get("http://localhost:3000/api/updateblockinfo").subscribe((result) => {
+      console.log(result)
+    });
+    window.location.reload();
+  }
+
+  onStatsClick(){
+    this.router.navigate(['/stats'])
   }
 }
