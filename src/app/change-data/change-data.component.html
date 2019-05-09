@@ -39,10 +39,10 @@
     <label for="formGroupExampleInput">hash</label>
     <input type="text" class="form-control" name="updateHash" placeholder="hash" required [(ngModel)]="deletedHash">
   </div>
-  <div *ngIf="success == true" class="alert alert-success" role="alert">
+  <div *ngIf="deleteSuccess == true" class="alert alert-success" role="alert">
     Deleted
   </div>
-  <div *ngIf="error == true" class="alert alert-danger" role="alert">
+  <div *ngIf="deleteError == true" class="alert alert-danger" role="alert">
     The specified hash doesn exist
   </div>
   <button class="btn btn-primary" (click)="onDeleteClick(deletedHash)">Delete</button>

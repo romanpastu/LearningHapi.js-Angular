@@ -42,6 +42,7 @@ export class ChangeDataComponent implements OnInit {
       console.log(result)
       if(result){
         this.updateSuccess =true;
+        this.router.navigate(['/explorer']);
       }else{
         this.updateError = true;
       }
@@ -64,6 +65,7 @@ export class ChangeDataComponent implements OnInit {
       console.log(result)
       if(result){
         this.insertSuccess =true;
+        
       }else{
         this.insertError = true;
       }
