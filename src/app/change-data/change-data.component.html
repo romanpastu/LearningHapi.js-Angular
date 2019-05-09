@@ -20,6 +20,12 @@
     <label for="formGroupExampleInput2">time</label>
     <input type="text" class="form-control" name="updateTime" placeholder="time" [(ngModel)]="updateTime">
   </div>
+  <div *ngIf="updateSuccess == true" class="alert alert-success" role="alert">
+    Updated
+  </div>
+  <div *ngIf="updateError == true" class="alert alert-danger" role="alert">
+    The specified hash can't be updated
+  </div>
   <button class="btn btn-primary" (click)="onUpdateClick(updateHash, updateHeight, updateSize, updateTime)">Update</button>
 </form>
 
@@ -32,6 +38,12 @@
   <div class="form-group">
     <label for="formGroupExampleInput">hash</label>
     <input type="text" class="form-control" name="updateHash" placeholder="hash" required [(ngModel)]="deletedHash">
+  </div>
+  <div *ngIf="success == true" class="alert alert-success" role="alert">
+    Deleted
+  </div>
+  <div *ngIf="error == true" class="alert alert-danger" role="alert">
+    The specified hash doesn exist
   </div>
   <button class="btn btn-primary" (click)="onDeleteClick(deletedHash)">Delete</button>
 </form>
@@ -56,6 +68,12 @@
   <div class="form-group">
     <label for="formGroupExampleInput2">time</label>
     <input type="text" class="form-control" name="updateTime" placeholder="time" [(ngModel)]="insertedTime">
+  </div>
+  <div *ngIf="insertSuccess == true" class="alert alert-success" role="alert">
+    Inserted
+  </div>
+  <div *ngIf="insertError == true" class="alert alert-danger" role="alert">
+    There was an error inserting the data
   </div>
   <button class="btn btn-primary" (click)="onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime)">Insert</button>
 </form>
