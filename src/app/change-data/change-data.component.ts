@@ -61,15 +61,20 @@ export class ChangeDataComponent implements OnInit {
       "size": Number(insertedSize),
       "time": Number(insertedTime)
     }
-    this.http.post(this.url, this.body).subscribe((result) => {
-      console.log(result)
-      if(result){
-        this.insertSuccess =true;
-        
-      }else{
-        this.insertError = true;
-      }
-    });
+    if(insertedHash != null){
+      this.http.post(this.url, this.body).subscribe((result) => {
+        console.log(result)
+        if(result){
+          this.insertSuccess =true;
+          
+        }else{
+          this.insertError = true;
+        }
+      });
+    }else{
+      this.insertError = true;
+    }
+    
     
   }
 
