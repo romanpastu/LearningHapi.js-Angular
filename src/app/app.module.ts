@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { SizeFilterPipe } from './size-filter.pipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
