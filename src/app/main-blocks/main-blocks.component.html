@@ -1,7 +1,16 @@
 <app-navbar></app-navbar>
 
 
-<table class="table" >
+<div class="input-group input-group-lg">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Filter by size</span>
+    </div>
+    <input [(ngModel)]=sizeInput type="text" class="form-control" aria-label="Large"
+        aria-describedby="inputGroup-sizing-sm">
+</div>
+
+
+<table class="table">
     <thead>
         <tr>
             <th scope="col">hash</th>
@@ -10,12 +19,14 @@
             <th scope="col"></th>
         </tr>
     </thead>
-    <tbody *ngFor="let data  of json">
+
+    <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
         <tr>
             <td>{{data.hash}}</td>
-            <td>{{data.size}}</td> 
+            <td>{{data.size}}</td>
             <td>{{data.time}}</td>
-            <td><button class="btn btn-primary" (click)="onUpdateClick(data.hash , data.size, data.time)">Update</button></td>
+            <td><button class="btn btn-primary"
+                    (click)="onUpdateClick(data.hash , data.size, data.time)">Update</button></td>
         </tr>
     </tbody>
 </table>

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {KeysPipe} from './jsonread.pipe';
 import { ChangeDataComponent } from './change-data/change-data.component'
 import { FormsModule } from '@angular/forms';
+import { SizeFilterPipe } from './size-filter.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     StatsComponent,
     NavbarComponent,
     KeysPipe,
-    ChangeDataComponent
+    ChangeDataComponent,
+    SizeFilterPipe
   ],
   imports: [
     BrowserModule,

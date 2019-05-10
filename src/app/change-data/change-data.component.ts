@@ -21,7 +21,7 @@ export class ChangeDataComponent implements OnInit {
 
   url: string = "";
   body;
-  constructor(private http: HttpClient, private dd: PassdataService,  private router : Router) {
+  constructor(private http: HttpClient, private dd: PassdataService, private router: Router) {
 
   }
 
@@ -40,14 +40,14 @@ export class ChangeDataComponent implements OnInit {
     }
     this.http.post(this.url, this.body).subscribe((result) => {
       console.log(result)
-      if(result){
-        this.updateSuccess =true;
+      if (result) {
+        this.updateSuccess = true;
         this.router.navigate(['/explorer']);
-      }else{
+      } else {
         this.updateError = true;
       }
     });
-    
+
 
   }
 
@@ -61,21 +61,21 @@ export class ChangeDataComponent implements OnInit {
       "size": Number(insertedSize),
       "time": Number(insertedTime)
     }
-    if(insertedHash != null){
+    if (insertedHash != null) {
       this.http.post(this.url, this.body).subscribe((result) => {
         console.log(result)
-        if(result){
-          this.insertSuccess =true;
-          
-        }else{
+        if (result) {
+          this.insertSuccess = true;
+
+        } else {
           this.insertError = true;
         }
       });
-    }else{
+    } else {
       this.insertError = true;
     }
-    
-    
+
+
   }
 
   onDeleteClick(deletedHash) {
@@ -86,14 +86,14 @@ export class ChangeDataComponent implements OnInit {
     console.log(this.url)
     this.http.delete(this.url).subscribe((result) => {
       console.log(result)
-      if(result){
+      if (result) {
         this.deleteSuccess = true;
-      }else{
+      } else {
         this.deleteError = true;
       }
-      
+
     });
-    
+
   }
 
 }
