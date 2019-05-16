@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'explorer', component: MainBlocksComponent, canActivate: [AuthguardGuard]},
   { path: 'stats', component: StatsComponent, canActivate: [AuthguardGuard]},
   { path: 'login', component: LoginComponent},
-  { path: '**', redirectTo: '/login' }
+  { path: '**', redirectTo: '/explorer' , canActivate: [AuthguardGuard]}
 
 ]
 
