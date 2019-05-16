@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import {AuthService} from '../auth.service'
+import { auth } from 'firebase';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public router: Router, private http: HttpClient) { }
+  constructor(public router: Router, private http: HttpClient, public auth: AuthService) { 
+    
+  }
 
   ngOnInit() {
   }
@@ -32,5 +35,9 @@ export class NavbarComponent implements OnInit {
 
   onStatsClick(){
     this.router.navigate(['/stats'])
+  }
+
+  signOut(){
+      this.auth.signOut();
   }
 }

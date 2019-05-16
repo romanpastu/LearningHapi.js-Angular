@@ -3,11 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { ChangeDataComponent } from './change-data/change-data.component'
 import {MainBlocksComponent} from './main-blocks/main-blocks.component'
 import { StatsComponent } from './stats/stats.component'
+import { LoginComponent } from './login/login.component'
+import { AuthguardGuard } from './authguard.guard'
 const routes: Routes = [
-  { path: '', redirectTo: '/explorer', pathMatch: 'full' },
-  { path: 'changedata', component: ChangeDataComponent },
-  { path: 'explorer', component: MainBlocksComponent },
-  { path: 'stats', component: StatsComponent}
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
+  { path: 'changedata', component: ChangeDataComponent , canActivate: [AuthguardGuard] },
+  { path: 'explorer', component: MainBlocksComponent, canActivate: [AuthguardGuard]},
+  { path: 'stats', component: StatsComponent, canActivate: [AuthguardGuard]},
+  { path: 'login', component: LoginComponent},
+  { path: '**', redirectTo: '/login' }
+
 ]
 
 

@@ -10,6 +10,7 @@ export class SizeFilterPipe implements PipeTransform {
     if(args == null || args == ""){
       return values;
     }
+    
     return values.filter((item) => item.size == args);
   }
 }

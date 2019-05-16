@@ -6,14 +6,15 @@ import { AppComponent } from './app.component';
 import { MainBlocksComponent } from './main-blocks/main-blocks.component';
 import { StatsComponent } from './stats/stats.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http'; 
-
-import {KeysPipe} from './jsonread.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { KeysPipe } from './jsonread.pipe';
 import { ChangeDataComponent } from './change-data/change-data.component'
 import { FormsModule } from '@angular/forms';
 import { SizeFilterPipe } from './size-filter.pipe';
-
-
+import { LoginComponent } from './login/login.component';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,17 @@ import { SizeFilterPipe } from './size-filter.pipe';
     NavbarComponent,
     KeysPipe,
     ChangeDataComponent,
-    SizeFilterPipe
+    SizeFilterPipe,
+    LoginComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
