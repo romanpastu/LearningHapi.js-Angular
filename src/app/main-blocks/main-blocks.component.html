@@ -23,7 +23,7 @@
 
         <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
             <tr  >
-                <td (click)="onUpdateClick(data.hash , data.size, data.time)" class="hHover" title="Update the data">{{data.hash}}</td>
+                <td (click)="onUpdateClick(data.hash , data.size, data.time)" class="hHover" title="Click to update the data">{{data.hash}}</td>
                 <td>{{data.size}}</td>
                 <td>{{data.time}}</td>
                 <!-- <td><button class="btn btn-primary"
