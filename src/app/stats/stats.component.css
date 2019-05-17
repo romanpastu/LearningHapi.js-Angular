@@ -1,0 +1,23 @@
+.properties {
+    text-align: center;
+    max-width: 720px; /* (200+(20x2))x3 */
+    font-size: 0; /* fix for white space bug */
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+.property {
+    display: inline-block;
+    margin:40px;
+    font-size: 16px;
+}
+
+
+
+.featured-properties { /* thing to center */
+    margin: auto;
+    background-color:green;
+    
+}

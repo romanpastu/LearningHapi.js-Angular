@@ -15,6 +15,7 @@ import { SizeFilterPipe } from './size-filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { HashFilterPipe } from './hash-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     KeysPipe,
     ChangeDataComponent,
     SizeFilterPipe,
-    LoginComponent
+    LoginComponent,
+    HashFilterPipe
     
   ],
   imports: [

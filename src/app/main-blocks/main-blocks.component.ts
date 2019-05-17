@@ -13,6 +13,7 @@ export class MainBlocksComponent {
   title = 'mchain';
   json ;
   sizeInput;
+  hashInput;
   url: string = "";
  
   

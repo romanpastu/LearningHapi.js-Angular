@@ -3,9 +3,9 @@
 <div class="container">
     <div class="input-group input-group-lg">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Filter by size</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Filter</span>
         </div>
-        <input [(ngModel)]=sizeInput type="text" class="form-control" aria-label="Large"
+        <input [(ngModel)]="sizeInput" type="text" class="form-control" aria-label="Large"
             aria-describedby="inputGroup-sizing-sm">
     </div>
 
@@ -22,12 +22,11 @@
         </thead>
 
         <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
-            <tr  >
-                <td (click)="onUpdateClick(data.hash , data.size, data.time)" class="hHover" title="Click to update the data">{{data.hash}}</td>
+            <tr>
+                <td (click)="onUpdateClick(data.hash , data.size, data.time)" class="hHover"
+                    title="Click to update the data">{{data.hash}}</td>
                 <td>{{data.size}}</td>
                 <td>{{data.time}}</td>
-                <!-- <td><button class="btn btn-primary"
-                        (click)="onUpdateClick(data.hash , data.size, data.time)">Update</button></td> -->
                 <td><button class="btn btn-primary" (click)="onDeleteClick(data.hash)">Delete</button></td>
             </tr>
         </tbody>
