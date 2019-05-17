@@ -10,7 +10,7 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  navbarCollapsed = true;
   constructor(public router: Router, private http: HttpClient, public auth: AuthService) { 
     
   }
@@ -42,4 +42,6 @@ export class NavbarComponent implements OnInit {
   signOut(){
       this.auth.signOut();
   }
+
+
 }

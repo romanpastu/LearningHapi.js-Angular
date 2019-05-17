@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainBlocksComponent } from './main-blocks/main-blocks.component';
@@ -36,6 +36,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
