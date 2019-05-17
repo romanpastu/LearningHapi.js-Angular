@@ -18,7 +18,7 @@ export class ChangeDataComponent implements OnInit {
   insertError: Boolean = false;
   updateSuccess: Boolean = false;
   updateError: Boolean = false;
-
+  
   url: string = "";
   body;
   constructor(private http: HttpClient, private dd: PassdataService, private router: Router) {
