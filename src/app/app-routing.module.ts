@@ -5,12 +5,14 @@ import { MainBlocksComponent } from './main-blocks/main-blocks.component'
 import { StatsComponent } from './stats/stats.component'
 import { LoginComponent } from './login/login.component'
 import { AuthguardGuard } from './authguard.guard'
+import { ProfilePageComponent } from './profile-page/profile-page.component'
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'changedata', component: ChangeDataComponent, canActivate: [AuthguardGuard] },
   { path: 'explorer', component: MainBlocksComponent, canActivate: [AuthguardGuard] },
   { path: 'stats', component: StatsComponent, canActivate: [AuthguardGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthguardGuard] },
   { path: '**', redirectTo: '/explorer', canActivate: [AuthguardGuard] }
 
 ]

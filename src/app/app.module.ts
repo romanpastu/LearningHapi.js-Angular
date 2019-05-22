@@ -15,6 +15,7 @@ import { SizeFilterPipe } from './size-filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     ChangeDataComponent,
     SizeFilterPipe,
     LoginComponent,
+    ProfilePageComponent,
 
   ],
   imports: [

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <p class="name">
+    Welcome {{displayName}}
+  </p>
+  <img *ngIf="profilePic != null" src="{{profilePic}}" class="center size img-thumbnail">
+
+  <p>Change profile picture</p>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Photo Url</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #picUrl required>
+  </div>
+  <button class="btn btn-primary" (click)="onUpdatePic(picUrl.value)">Upload</button>
+
+  <p>Change nickname</p>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Nickname</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #nick required>
+  </div>
+  <button class="btn btn-primary" (click)="onUpdateNick(nick.value)">Change nickname</button>
+</div>

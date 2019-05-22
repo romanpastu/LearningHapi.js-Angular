@@ -43,5 +43,9 @@ export class NavbarComponent implements OnInit {
       this.auth.signOut();
   }
 
+  onProfileClick(){
+    this.router.navigate(['/profile'])
+  }
+
 
 }

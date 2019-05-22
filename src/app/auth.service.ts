@@ -28,9 +28,16 @@ export class AuthService {
   }
 
 
-  signUp(email, password) {
+  signUp(email, password, nick) {
+    var storedUser = null;
     this.af.auth.createUserWithEmailAndPassword(email, password).then((user) => {
+      
+      storedUser = this.af.auth.currentUser;
+      storedUser.updateProfile({
+        displayName: nick,
+      });
 
+      console.log("nombre "+this.af.auth.currentUser.displayName)
       this.router.navigate(['/explorer']);
     }
     ).catch(function (error) {
