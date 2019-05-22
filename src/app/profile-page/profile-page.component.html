@@ -13,6 +13,9 @@
     </div>
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #picUrl required>
   </div>
+  <div *ngIf="pictureChanged" class="alert alert-success" role="alert">
+      Picture Changed.
+    </div>
   <button class="btn btn-primary" (click)="onUpdatePic(picUrl.value)">Upload</button>
 
   <p>Change nickname</p>
@@ -22,11 +25,15 @@
     </div>
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #nick required>
   </div>
+  <div *ngIf="nickChanged" class="alert alert-success" role="alert">
+      Nick Changed.
+    </div>
   <button class="btn btn-primary" (click)="onUpdateNick(nick.value)">Change nickname</button>
 
-  <p> reset password</p>
+  <p>Reset password</p>
 
   <button class="btn btn-primary" (click)="resetPwd()">Reset password</button>
-
+  <div *ngIf="emailSent" class="alert alert-success" role="alert">
+    An email to reset your password has been sent.
+  </div>
 </div>
-

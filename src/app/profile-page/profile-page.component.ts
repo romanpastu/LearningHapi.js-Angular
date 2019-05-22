@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+
   displayName;
   profilePic = this.af.auth.currentUser.photoURL;
   user = null;
@@ -21,18 +22,24 @@ export class ProfilePageComponent implements OnInit {
 
   onUpdatePic(url) {
     this.user = this.af.auth.currentUser;
+    var patt = /\.(?:jpe?g|png)\b/;
 
-    console.log(this.user)
-    console.log(url)
-    this.user.updateProfile({
-      photoURL: url
-    }).then(function () {
-      // Update successful.
+    if(patt.test(url)){
+      this.user.updateProfile({
+        photoURL: url
+      }).then(function () {
+        // Update successful.
+  
+  
+        location.reload();
+      }).catch(function (error) {
+        //error
+      });
+    }else{
+      console.log("invalid image extension, it must be jpg/jpeg or png")
+    }
 
-      location.reload();
-    }).catch(function (error) {
-      //error
-    });
+    
   }
 
   onUpdateNick(nick) {
@@ -45,6 +52,7 @@ export class ProfilePageComponent implements OnInit {
         displayName: nick
       }).then(function () {
         // Update successful.
+
 
         location.reload();
       }).catch(function (error) {
@@ -62,8 +70,12 @@ export class ProfilePageComponent implements OnInit {
     auth.sendPasswordResetEmail(emailAddress).then(function () {
       // Email sent.
       console.log("sent")
+      console.log(this.emailSent)
+      this.emailSent = true;
+      console.log(this.emailSent)
     }).catch(function (error) {
       console.log("not sent")
+
     });
   }
 
