@@ -3,6 +3,7 @@ import { JsonLoadService } from '../json-load.service'
 import { Router } from '@angular/router';
 import { PassdataService} from '../passdata.service'
 import { HttpClient } from '@angular/common/http';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-main-blocks',
@@ -16,10 +17,12 @@ export class MainBlocksComponent {
   hashInput;
   url: string = "";
  
+  //
+  closeResult: string;
   
 
 
-  constructor(private jsl : JsonLoadService, private router : Router, private dd : PassdataService, private http: HttpClient){
+  constructor(private modalService: NgbModal, private jsl : JsonLoadService, private router : Router, private dd : PassdataService, private http: HttpClient){
 
     this.json = this.jsl.getUrl().subscribe(res => {
       console.log(res)
@@ -57,6 +60,23 @@ export class MainBlocksComponent {
     });
   }
 
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 
 
 }

@@ -23,18 +23,42 @@
 
             <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
                 <tr class="hHover">
-                    <td (click)="onUpdateClick(data.hash , data.size, data.time)" 
-                        title="Click to update the data">{{data.hash}}</td>
+                    <td (click)="onUpdateClick(data.hash , data.size, data.time)" title="Click to update the data">
+                        {{data.hash}}</td>
                     <td>{{data.size}}</td>
                     <td>{{data.time}}</td>
                     <td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger">
+                        <button (click)="open(content)" class="btn btn-danger" data-toggle="modal"
+                            data-target="#exampleModal">
                             Delete
                         </button>
 
-                    </td>    
+                    </td>
+
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Confirm block deletion</h4>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Are you sure that you want to delete the block?</label>
+                                    <div class="input-group">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger"
+                                (click)="onDeleteClick(data.hash)">Delete</button>
+                        </div>
+                    </ng-template>
                 </tr>
 
             </tbody>
