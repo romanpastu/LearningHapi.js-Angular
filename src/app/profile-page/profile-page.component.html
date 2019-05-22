@@ -5,7 +5,7 @@
     Welcome {{displayName}}
   </p>
   <img *ngIf="profilePic != null" src="{{profilePic}}" class="center size img-thumbnail">
-
+  <hr>
   <p>Change profile picture</p>
   <div class="input-group input-group-sm mb-3">
     <div class="input-group-prepend">
@@ -14,9 +14,14 @@
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #picUrl required>
   </div>
   <div *ngIf="pictureChanged" class="alert alert-success" role="alert">
-      Picture Changed.
-    </div>
+    Picture Changed.
+  </div>
+  <div *ngIf="invalidExt" class="alert alert-danger" role="alert">
+    Invalid extension, it must be jpg/jpeg/png.
+  </div>
   <button class="btn btn-primary" (click)="onUpdatePic(picUrl.value)">Upload</button>
+
+  <hr>
 
   <p>Change nickname</p>
   <div class="input-group input-group-sm mb-3">
@@ -26,12 +31,16 @@
     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" #nick required>
   </div>
   <div *ngIf="nickChanged" class="alert alert-success" role="alert">
-      Nick Changed.
+    Nick Changed.
+  </div>
+  <div *ngIf="nickCondition" class="alert alert-danger" role="alert">
+      The nick cannot be blank.
     </div>
   <button class="btn btn-primary" (click)="onUpdateNick(nick.value)">Change nickname</button>
 
-  <p>Reset password</p>
+  <hr>
 
+  <p>Reset password</p>
   <button class="btn btn-primary" (click)="resetPwd()">Reset password</button>
   <div *ngIf="emailSent" class="alert alert-success" role="alert">
     An email to reset your password has been sent.

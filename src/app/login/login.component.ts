@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  signUp(email, password, nick) {
-    this.auth.signUp(email,password, nick)
+  signUp(email, password) {
+    this.auth.signUp(email,password)
     
   }
 }

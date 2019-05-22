@@ -9,7 +9,7 @@ export class AuthService {
   constructor(public af: AngularFireAuth, public router: Router) { }
 
   logIn(email, password) {
-    
+
 
     this.af.auth.signInWithEmailAndPassword(email, password).then((user) => {
 
@@ -28,16 +28,24 @@ export class AuthService {
   }
 
 
-  signUp(email, password, nick) {
+  signUp(email, password) {
     var storedUser = null;
+
+
+//Estoy intentando sacar con un regex hasta la @ , para usarlo de nick por defecto
+    var defaultnick = email.match(/^(.*?)@/)
+    console.log(defaultnick)
+    alert(defaultnick)
+//
+
     this.af.auth.createUserWithEmailAndPassword(email, password).then((user) => {
-      
+
       storedUser = this.af.auth.currentUser;
       storedUser.updateProfile({
-        displayName: nick,
+        displayName: defaultnick[1],
       });
 
-      console.log("nombre "+this.af.auth.currentUser.displayName)
+      console.log("nombre " + this.af.auth.currentUser.displayName)
       this.router.navigate(['/explorer']);
     }
     ).catch(function (error) {
@@ -53,11 +61,11 @@ export class AuthService {
     });
   }
 
-  signOut(){
+  signOut() {
     return this.af.auth.signOut().then(() => {
       this.router.navigate(['/login']);
-      })
+    })
   }
 
-  
+
 }
