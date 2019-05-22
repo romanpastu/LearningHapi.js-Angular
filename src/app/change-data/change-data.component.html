@@ -21,10 +21,10 @@
     <input type="text" class="form-control" name="updateTime" placeholder="time" [(ngModel)]="updateTime">
   </div>
   <div *ngIf="updateSuccess == true" class="alert alert-success" role="alert">
-    Updated
+    Updated, you will now be redirected to the main page.
   </div>
   <div *ngIf="updateError == true" class="alert alert-danger" role="alert">
-    The specified hash can't be updated
+    The specified hash can't be updated.
   </div>
   <button class="btn btn-primary" (click)="onUpdateClick(updateHash, updateHeight, updateSize, updateTime)">Update</button>
 </form>

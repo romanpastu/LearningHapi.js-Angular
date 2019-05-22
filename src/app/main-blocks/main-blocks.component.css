@@ -3,20 +3,12 @@
     cursor: pointer;
     
 }
-/* 
- .trashButton{
-  display:none;
-}
-
-tr:hover .trashButton{
-  display:block;
-  }  */
 
   .deleteButton{
-    visibility:hidden;
+    visibility: hidden;
   }
 tr:hover .deleteButton{
-  visibility: visible;
+   visibility: visible;
 }
 
 
@@ -26,6 +18,9 @@ tr:hover .deleteButton{
     padding-top:0.7vw;
 }
 
+.insertBtn{
+  margin-top:0.7vw;
+}
 
 
   .sliding-background {
@@ -49,6 +44,8 @@ th{
     color: rgb(18, 130, 158);
     
 }
+
+
 
 
  

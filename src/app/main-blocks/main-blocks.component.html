@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 
 <div class="container-fluid">
+
+
+
     <div class="input-group input-group-lg">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Search</span>
@@ -9,8 +12,10 @@
             aria-describedby="inputGroup-sizing-sm" placeholder="Input Hash or Size">
     </div>
 
+
+
     <div class="table-responsive sliding-background ">
-        <table class="table ">
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Hash</th>
@@ -30,10 +35,10 @@
                     <td>
                     <td>
                         <!-- Button trigger modal -->
-                         <button (click)="open(content)" class="btn btn-danger deleteButton" data-toggle="modal"
+                        <button (click)="open(content)" class="btn btn-danger deleteButton" data-toggle="modal"
                             data-target="#exampleModal">
                             Delete
-                        </button> 
+                        </button>
 
                         <!-- <i class="fa fa-trash" (click)="open(content)" class="trashButton" data-toggle="modal"
                         data-target="#exampleModal">stop</i> -->
@@ -48,10 +53,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body" >
+                        <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="dateOfBirth">Are you sure that you want to delete the selected block?</label>
+                                    <label for="dateOfBirth">Are you sure that you want to delete the selected
+                                        block?</label>
                                     <div class="input-group">
                                     </div>
                                 </div>

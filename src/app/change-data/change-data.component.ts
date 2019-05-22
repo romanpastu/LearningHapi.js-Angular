@@ -18,7 +18,7 @@ export class ChangeDataComponent implements OnInit {
   insertError: Boolean = false;
   updateSuccess: Boolean = false;
   updateError: Boolean = false;
-  
+
   url: string = "";
   body;
   constructor(private http: HttpClient, private dd: PassdataService, private router: Router) {
@@ -42,7 +42,17 @@ export class ChangeDataComponent implements OnInit {
       console.log(result)
       if (result) {
         this.updateSuccess = true;
-        this.router.navigate(['/explorer']);
+
+
+        setTimeout(() => {
+          this.router.navigate(['/explorer']);
+        }, 2000);
+
+        //  this.router.navigate(['/explorer']);
+
+
+
+
       } else {
         this.updateError = true;
       }
