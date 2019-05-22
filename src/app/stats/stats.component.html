@@ -1,31 +1,27 @@
 <app-navbar></app-navbar>
 
 
- <!-- <ul class="list-group" *ngFor="let data  of json">
-  <li class="list-group-item">Difficulty : {{data.difficulty}}</li>
-  <li class="list-group-item">Mined currency amount : {{data.mined_currency_amount}}</li>
-  <li class="list-group-item">Number of tx: {{data.number_of_transactions}}</li>
-</ul> -->
 
-<div class="featured-properties">
-  <div class="properties" *ngFor="let data  of json">
-      <div class="property">
-          <img src="http://placehold.it/200x150" alt="Difficulty" />
-          <p>Difficulty</p>
-          <p>{{data.difficulty}}</p>
-      </div>
 
-      <div class="property">
-          <img src="http://placehold.it/200x150" alt="Mined amount" />
-          <p>Mined currency amount</p>
-          <p>{{data.mined_currency_amount}}</p>
-      </div>
+<div class="container" *ngFor="let data  of json">
+    <div class="row align-items-center">
+        <div class="col ">
+            <img src="../../assets/chart-area-solid.svg" >
+            <p class="title"> Network Difficulty</p>
+            <p class="data">{{data.difficulty}}</p>
+        </div>
+        <div class="col ">
+            <img src="../../assets/hammer-solid.svg"  >
+            <p class="title"> Mined Amount</p>
+            <p class="data">{{data.mined_currency_amount}}</p>
+        </div>
+        <div class="col">
+            <img src="../../assets/paper-plane-solid.svg" >
+            <p class="title"> Number of Transactions</p>
+            <p class="data">{{data.number_of_transactions}}</p>
 
-      <div class="property">
-          <img src="http://placehold.it/200x150" alt="Number of transactions" />
-          <p>Number of tx</p>
-          <p>{{data.number_of_transactions}}</p>
-      </div>
-  </div><!-- end .properties -->
-</div><!-- end .featured-properties -->
+        </div>
+    </div>
+</div>
 
+ 

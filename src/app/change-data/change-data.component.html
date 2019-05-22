@@ -6,7 +6,7 @@
 <form>
   <div class="form-group">
     <label for="formGroupExampleInput">hash</label>
-    <input type="text" class="form-control"  name ="hash" placeholder="hash" required [(ngModel)]="updateHash" readonly>
+    <input type="text" class="form-control"  name ="hash" placeholder="Select a hash from the explorer to update it." required [(ngModel)]="updateHash" readonly>
   </div>
   <!-- <div class="form-group">
     <label for="formGroupExampleInput2">height</label>
@@ -43,7 +43,7 @@
     Deleted
   </div>
   <div *ngIf="deleteError == true" class="alert alert-danger" role="alert">
-    The specified hash doesn exist
+    The specified hash doesn't exist
   </div>
   <button class="btn btn-primary" (click)="onDeleteClick(deletedHash)">Delete</button>
 </form>

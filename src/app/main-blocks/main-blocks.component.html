@@ -1,34 +1,47 @@
 <app-navbar></app-navbar>
 
-<div class="container">
+<div class="container-fluid">
     <div class="input-group input-group-lg">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Search</span>
         </div>
         <input [(ngModel)]="sizeInput" type="text" class="form-control" aria-label="Large"
-            aria-describedby="inputGroup-sizing-sm">
+            aria-describedby="inputGroup-sizing-sm" placeholder="Input Hash or Size">
     </div>
 
+    <div class="table-responsive sliding-background ">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Hash</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Time</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">hash</th>
-                <th scope="col">size</th>
-                <th scope="col">time</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
+            <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
+                <tr class="hHover">
+                    <td (click)="onUpdateClick(data.hash , data.size, data.time)" 
+                        title="Click to update the data">{{data.hash}}</td>
+                    <td>{{data.size}}</td>
+                    <td>{{data.time}}</td>
+                    <td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger">
+                            Delete
+                        </button>
 
-        <tbody *ngFor="let data  of json | sizeFilter : sizeInput">
-            <tr>
-                <td (click)="onUpdateClick(data.hash , data.size, data.time)" class="hHover"
-                    title="Click to update the data">{{data.hash}}</td>
-                <td>{{data.size}}</td>
-                <td>{{data.time}}</td>
-                <td><button class="btn btn-danger" (click)="onDeleteClick(data.hash)">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+                    </td>    
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
+<!-- (click)="onDeleteClick(data.hash)" -->
