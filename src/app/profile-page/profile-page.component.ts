@@ -15,6 +15,7 @@ export class ProfilePageComponent implements OnInit {
     this.displayName = this.af.auth.currentUser.displayName;
     console.log("nombre " + this.af.auth.currentUser.displayName)
     console.log("picture" + this.af.auth.currentUser.photoURL)
+    console.log(this.af.auth.currentUser)
 
   }
 
@@ -39,19 +40,31 @@ export class ProfilePageComponent implements OnInit {
 
     console.log(this.user)
     console.log(nick)
-    if(nick != ""){
+    if (nick != "") {
       this.user.updateProfile({
         displayName: nick
       }).then(function () {
         // Update successful.
-  
+
         location.reload();
       }).catch(function (error) {
         //error
       });
     }
 
-    
+
+  }
+
+  resetPwd() {
+    var auth = this.af.auth;
+    var emailAddress = this.af.auth.currentUser.email
+    console.log(emailAddress)
+    auth.sendPasswordResetEmail(emailAddress).then(function () {
+      // Email sent.
+      console.log("sent")
+    }).catch(function (error) {
+      console.log("not sent")
+    });
   }
 
   ngOnInit() {
