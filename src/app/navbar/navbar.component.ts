@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {AuthService} from '../auth.service'
-import { auth } from 'firebase';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

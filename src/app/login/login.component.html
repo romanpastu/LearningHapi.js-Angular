@@ -33,7 +33,14 @@
                 (click)="logIn(emailInput.value, pwdInput.value)">Login</button>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
                 (click)="signUp(emailInput.value, pwdInput.value)">Sign up</button>
-
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+                (click)="resetPwd(emailInput.value)">Reset Password</button>
+                <div class="alert alert-success" role="alert" *ngIf="recoverSuccess">
+                  Recovery email sent
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="recoverFail">
+                  You must input a valid email
+                </div>
             </form>
           </div>
         </div>
