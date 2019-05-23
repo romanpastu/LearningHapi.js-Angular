@@ -31,12 +31,7 @@ export class AuthService {
   signUp(email, password) {
     var storedUser = null;
 
-
-//Estoy intentando sacar con un regex hasta la @ , para usarlo de nick por defecto
     var defaultnick = email.match(/^(.*?)@/)
-    console.log(defaultnick)
-    alert(defaultnick)
-//
 
     this.af.auth.createUserWithEmailAndPassword(email, password).then((user) => {
 
