@@ -24,7 +24,7 @@ export class MainBlocksComponent {
 
   constructor(private modalService: NgbModal, private jsl : JsonLoadService, private router : Router, private dd : PassdataService, private http: HttpClient){
 
-    this.json = this.jsl.getUrl().subscribe(res => {
+    this.jsl.getUrl().subscribe(res => {
       console.log(res)
       this.json = res;
 
