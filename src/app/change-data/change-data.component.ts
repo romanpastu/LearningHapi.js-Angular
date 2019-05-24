@@ -28,7 +28,7 @@ export class ChangeDataComponent implements OnInit {
   ngOnInit() {
   }
 
-  onUpdateClick(updateHash, updateHeight, updateSize, updateTime) {
+  onUpdateClick(updateHash, updateSize, updateTime) {
     this.updateError = false;
     this.updateSuccess = false;
     this.url = "http://localhost:3000/api/blockinfo/" + updateHash.toString();
@@ -71,7 +71,8 @@ export class ChangeDataComponent implements OnInit {
       "size": Number(insertedSize),
       "time": Number(insertedTime)
     }
-    if (insertedHash != null) {
+    console.log(insertedHash.toString())
+    if (insertedHash != null && insertedHash != "") {
       this.http.post(this.url, this.body).subscribe((result) => {
         console.log(result)
         if (result) {

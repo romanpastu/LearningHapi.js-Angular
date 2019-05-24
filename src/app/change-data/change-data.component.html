@@ -26,7 +26,7 @@
   <div *ngIf="updateError == true" class="alert alert-danger" role="alert">
     The specified hash can't be updated.
   </div>
-  <button class="btn btn-primary" (click)="onUpdateClick(updateHash, updateHeight, updateSize, updateTime)">Update</button>
+  <button class="btn btn-primary" (click)="onUpdateClick(updateHash, updateSize, updateTime)">Update</button>
 </form>
 
 
@@ -37,7 +37,7 @@
 <form>
   <div class="form-group">
     <label for="formGroupExampleInput">hash</label>
-    <input type="text" class="form-control" name="updateHash" placeholder="hash" required [(ngModel)]="deletedHash">
+    <input type="text" class="form-control" name="updateHash" placeholder="hash" required  #deletedHash>
   </div>
   <div *ngIf="deleteSuccess == true" class="alert alert-success" role="alert">
     Deleted
@@ -45,7 +45,7 @@
   <div *ngIf="deleteError == true" class="alert alert-danger" role="alert">
     The specified hash doesn't exist
   </div>
-  <button class="btn btn-primary" (click)="onDeleteClick(deletedHash)">Delete</button>
+  <button class="btn btn-primary" (click)="onDeleteClick(deletedHash.value)">Delete</button>
 </form>
 
 
@@ -55,19 +55,19 @@
 <form>
   <div class="form-group">
     <label for="formGroupExampleInput">hash</label>
-    <input type="text" class="form-control" name="updateHash" placeholder="hash" required [(ngModel)]="insertedHash">
+    <input type="text" class="form-control" name="updateHash" placeholder="hash" required #insertedHash>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">height</label>
-    <input type="text" class="form-control" name="updateHeight" placeholder="height" [(ngModel)]="insertedHeight">
+    <input type="text" class="form-control" name="updateHeight" placeholder="height" #insertedHeight>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">size</label>
-    <input type="text" class="form-control" name="updateSize" placeholder="size" [(ngModel)]="insertedSize">
+    <input type="text" class="form-control" name="updateSize" placeholder="size" #insertedSize>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">time</label>
-    <input type="text" class="form-control" name="updateTime" placeholder="time" [(ngModel)]="insertedTime">
+    <input type="text" class="form-control" name="updateTime" placeholder="time" #insertedTime>
   </div>
   <div *ngIf="insertSuccess == true" class="alert alert-success" role="alert">
     Inserted
@@ -75,7 +75,7 @@
   <div *ngIf="insertError == true" class="alert alert-danger" role="alert">
     There was an error inserting the data
   </div>
-  <button class="btn btn-primary" (click)="onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime)">Insert</button>
+  <button class="btn btn-primary" (click)="onInsertClick(insertedHash.value, insertedHeight.value, insertedSize.value, insertedTime.value)">Insert</button>
 </form>
 
 </div>
