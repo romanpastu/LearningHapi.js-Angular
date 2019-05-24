@@ -14,12 +14,12 @@ export class JsonLoadService {
   }
 
   getUrl() {
-    return this.http.get('http://mchain-back.herokuapp.com/api/blockinfo')
+    return this.http.get('https://mchain-back.herokuapp.com/api/blockinfo')
       .pipe(map(res => res));
   }
 
   getUrlStats() {
-    return this.http.get('http://mchain-back.herokuapp.com/api/stats')
+    return this.http.get('https://mchain-back.herokuapp.com/api/stats')
       .pipe(map(res => res));
   }
 }
