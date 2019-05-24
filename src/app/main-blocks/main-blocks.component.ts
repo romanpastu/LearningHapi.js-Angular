@@ -25,7 +25,7 @@ export class MainBlocksComponent {
   constructor(private modalService: NgbModal, private jsl : JsonLoadService, private router : Router, private dd : PassdataService, private http: HttpClient){
 
     this.jsl.getUrl().subscribe(res => {
-      console.log(res)
+      
       this.json = res;
 
       
@@ -47,9 +47,9 @@ export class MainBlocksComponent {
   onDeleteClick(hash){
     this.url = "https://mchain-back.herokuapp.com/api/blockinfo/";
     this.url += hash
-    console.log(this.url)
+    
     this.http.delete(this.url).subscribe((result) => {
-      console.log(result)
+      
       window.location.reload();
       // if (result) {
       //   this.deleteSuccess = true;

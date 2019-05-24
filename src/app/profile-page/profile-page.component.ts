@@ -22,9 +22,7 @@ export class ProfilePageComponent implements OnInit {
 
 
     this.displayName = this.af.auth.currentUser.displayName;
-    console.log("nombre " + this.af.auth.currentUser.displayName)
-    console.log("picture" + this.af.auth.currentUser.photoURL)
-    console.log(this.af.auth.currentUser)
+    
 
 
 
@@ -54,10 +52,10 @@ export class ProfilePageComponent implements OnInit {
           //error
         });
       } else {
-        console.log("image doesnt exist")
+        
       }
     } else {
-      console.log("invalid image extension, it must be jpg/jpeg or png")
+      
       this.invalidExt = true;
     }
 
@@ -68,8 +66,7 @@ export class ProfilePageComponent implements OnInit {
     this.nickCondition = false;
     this.user = this.af.auth.currentUser;
 
-    console.log(this.user)
-    console.log(nick)
+    
     if (nick != "") {
       this.nickChanged = true;
       this.user.updateProfile({
@@ -94,14 +91,14 @@ export class ProfilePageComponent implements OnInit {
   resetPwd() {
     var auth = this.af.auth;
     var emailAddress = this.af.auth.currentUser.email
-    console.log(emailAddress)
+    
     this.emailSent = true;
     auth.sendPasswordResetEmail(emailAddress).then(function () {
       // Email sent.
-      console.log("sent")
+      
 
     }).catch(function (error) {
-      console.log("not sent")
+      
     });
   }
 

@@ -11,7 +11,7 @@ export class StatsComponent implements OnInit {
   constructor(private jsl : JsonLoadService) { 
 
     this.jsl.getUrlStats().subscribe(res => {
-      console.log(res)
+      
       this.json = res;
 
       

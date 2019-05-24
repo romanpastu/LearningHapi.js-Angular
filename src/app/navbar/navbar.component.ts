@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
 
   onUpdateBlocks(){
     this.http.get("https://mchain-back.herokuapp.com/api/updateblockinfo").subscribe((result) => {
-      console.log(result)
+      
       window.location.reload();
       
     });

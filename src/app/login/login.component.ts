@@ -32,13 +32,13 @@ export class LoginComponent implements OnInit {
     
     var auth = this.af.auth;
     var emailAddress = email
-    console.log(emailAddress)
+    
     auth.sendPasswordResetEmail(emailAddress).then(function () {
       // Email sent.
-      console.log("sent")
+      
 
     }).catch(function (error) {
-      console.log("not sent")
+      
     });
 
     if(email = "" || !email.toString().includes("@")){

@@ -39,7 +39,7 @@ export class ChangeDataComponent implements OnInit {
       "time": Number(updateTime)
     }
     this.http.post(this.url, this.body).subscribe((result) => {
-      console.log(result)
+      
       if (result) {
         this.updateSuccess = true;
 
@@ -71,10 +71,10 @@ export class ChangeDataComponent implements OnInit {
       "size": Number(insertedSize),
       "time": Number(insertedTime)
     }
-    console.log(insertedHash.toString())
+    
     if (insertedHash != null && insertedHash != "") {
       this.http.post(this.url, this.body).subscribe((result) => {
-        console.log(result)
+        
         if (result) {
           this.insertSuccess = true;
 
@@ -94,9 +94,9 @@ export class ChangeDataComponent implements OnInit {
     this.deleteError = false;
     this.url = "https://mchain-back.herokuapp.com/api/blockinfo/";
     this.url += deletedHash
-    console.log(this.url)
+    
     this.http.delete(this.url).subscribe((result) => {
-      console.log(result)
+      
       if (result) {
         this.deleteSuccess = true;
       } else {

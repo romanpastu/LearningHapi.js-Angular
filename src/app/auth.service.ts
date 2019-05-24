@@ -23,7 +23,7 @@ export class AuthService {
       } else {
         alert(errorMessage);
       }
-      console.log(error);
+      
     });
   }
 
@@ -40,7 +40,7 @@ export class AuthService {
         displayName: defaultnick[1],
       });
 
-      console.log("nombre " + this.af.auth.currentUser.displayName)
+      
       this.router.navigate(['/explorer']);
     }
     ).catch(function (error) {
@@ -52,7 +52,7 @@ export class AuthService {
       } else {
         alert(errorMessage);
       }
-      console.log(error);
+      
     });
   }
 
