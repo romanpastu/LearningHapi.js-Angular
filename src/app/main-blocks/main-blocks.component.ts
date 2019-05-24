@@ -45,7 +45,7 @@ export class MainBlocksComponent {
   }
 
   onDeleteClick(hash){
-    this.url = "http://localhost:3000/api/blockinfo/";
+    this.url = "http://mchain-back.herokuapp.com/api/blockinfo/";
     this.url += hash
     console.log(this.url)
     this.http.delete(this.url).subscribe((result) => {

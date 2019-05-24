@@ -31,7 +31,7 @@ export class ChangeDataComponent implements OnInit {
   onUpdateClick(updateHash, updateSize, updateTime) {
     this.updateError = false;
     this.updateSuccess = false;
-    this.url = "http://localhost:3000/api/blockinfo/" + updateHash.toString();
+    this.url = "http://mchain-back.herokuapp.com/api/blockinfo/" + updateHash.toString();
 
     this.body = {
       "hash": updateHash,
@@ -64,7 +64,7 @@ export class ChangeDataComponent implements OnInit {
   onInsertClick(insertedHash, insertedHeight, insertedSize, insertedTime) {
     this.insertError = false;
     this.insertSuccess = false;
-    this.url = "http://localhost:3000/api/createblock";
+    this.url = "http://mchain-back.herokuapp.com/api/createblock";
     this.body = {
       "hash": insertedHash,
       "height": Number(insertedHeight),
@@ -92,7 +92,7 @@ export class ChangeDataComponent implements OnInit {
   onDeleteClick(deletedHash) {
     this.deleteSuccess = false;
     this.deleteError = false;
-    this.url = "http://localhost:3000/api/blockinfo/";
+    this.url = "http://mchain-back.herokuapp.com/api/blockinfo/";
     this.url += deletedHash
     console.log(this.url)
     this.http.delete(this.url).subscribe((result) => {
